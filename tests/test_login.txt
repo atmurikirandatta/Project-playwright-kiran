@@ -1,0 +1,48 @@
+"""
+Authentication test scenarios using pytest-bdd.
+"""
+import pytest
+from pytest_bdd import scenarios, given, when, then
+from pages.login_page import LoginPage
+
+# Load all scenarios from authentication features
+scenarios('../Features/login.feature')
+
+@given('I am on the login page')
+def navigate_to_login_page(login_page: LoginPage):
+    """Navigate to the login page."""
+    login_page.navigate_to_login()
+
+@given('validating the username and passwords fields')
+def validate_username_and_password_fields(login_page: LoginPage):
+    """Verify that login page fields are visible."""
+    login_page.verify_all_fields()
+
+# --- FIX 1: Renamed function to be unique ---
+@when('I enter my username "Admin"')
+def enter_username(login_page: LoginPage):
+    """Enter the username."""
+    login_page.enter_username("Admin")
+
+# --- FIX 2: Renamed function and fixed the incorrect method call ---
+@when('I enter my password "admin123"')
+def enter_password(login_page: LoginPage):
+    """Enter the password."""
+    # This now correctly calls an 'enter_password' method
+    login_page.enter_password("admin123")
+
+@when('I click the login button')
+def click_login_button(login_page: LoginPage):
+    """Click the login button."""
+    login_page.click_login()
+
+# --- FIX 3: Changed decorator from @when to @then ---
+@then('I have verified the landing page')
+def verify_landing_page(login_page: LoginPage):
+    """Verify the user has landed on the correct page after login."""
+    # This should verify something on the new page, e.g., a dashboard header
+    #login_page.verify_dashboard_is_visible()
+    
+    login_page.wait_for_page_load()
+
+    

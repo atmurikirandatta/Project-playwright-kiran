@@ -1,0 +1,31 @@
+# Core testing framework
+playwright>=1.44.0
+pytest>=8.0.0
+pytest-playwright>=0.4.4
+
+# BDD testing
+pytest-bdd>=7.2.0
+
+# Allure reporting
+allure-pytest>=2.13.2
+
+# Additional testing utilities
+pytest-xdist>=3.6.1
+pytest-html>=4.1.1
+pytest-mock>=3.12.0
+pytest-asyncio>=0.23.8
+
+# Data handling and utilities
+pydantic>=2.7.4
+python-dotenv>=1.0.1
+faker>=25.4.0
+requests>=2.32.3
+
+# Logging and configuration
+loguru>=0.7.2
+pyyaml>=6.0.1
+
+# Development tools
+black>=24.4.2
+flake8>=7.1.0
+mypy>=1.10.1

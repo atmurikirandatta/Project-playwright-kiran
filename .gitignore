@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.env
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+*.egg
+pip-log.txt
+.coverage
+coverage.*
+.tox/
+.mypy_cache/
+.dmypy.json
+
+# Playwright
+test-results/
+*.log
+
+# Allure results and reports
+allure-results/
+allure-report/
+
+# VSCode & IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.bak
+*.orig
+*~
+
+# Node (if used for allure helpers)
+node_modules/
+
+# Virtualenvs
+testvenv/
