@@ -1,5 +1,5 @@
 """User Authentication feature tests."""
-import pytest
+import os
 import allure
 from pytest_bdd import scenarios, given, when, then, parsers
 from pages.login_page import LoginPage
@@ -39,15 +39,17 @@ def enter_invalid_username(login_page: LoginPage, username: str):
         login_page.enter_username(username)
 
 
-@when(parsers.parse('the user enters valid password "{password}"'))
+@when(parsers.parse('the user enters valid password "password"'))
 @allure.step("Enter valid password: ***")
-def enter_valid_password(login_page: LoginPage , password: str):
+def enter_valid_password(login_page: LoginPage):
+    password = os.environ.get("TEST_PASSWORD")
     login_page.enter_password(password)
 
 
-@when(parsers.parse('the user enters valid username "{username}"'))
-@allure.step("Enter valid username: {username}")
-def enter_valid_username(login_page: LoginPage, username: str):
+@when(parsers.parse('the user enters valid username "username"'))
+@allure.step("Enter valid username:")
+def enter_valid_username(login_page: LoginPage):
+    username = os.environ.get("TEST_USERNAME")
     login_page.enter_username(username)
 
 

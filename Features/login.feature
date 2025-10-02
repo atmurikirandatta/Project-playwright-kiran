@@ -7,8 +7,8 @@ Feature: User Authentication
     Given the user is on the login page
 
   Scenario: Successful login with valid credentials
-    When the user enters valid username "Admin"
-    And the user enters valid password "admin123"
+    When the user enters valid username "username"
+    And the user enters valid password "password"
     And the user clicks the login button
     Then the user should land on the landing page
 
